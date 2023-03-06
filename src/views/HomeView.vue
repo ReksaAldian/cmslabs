@@ -12,20 +12,10 @@
         </div>
       </div>
 
-      <div class="row mb-3">
-        <div class="col-md-4 mt-d">
-          <h2> Foods </h2>
-        </div>
-        <div class="col-md-4 mt-d">
-          <h2> Foods </h2>
-        </div>
-        <div class="col-md-4 mt-d">
-          <h2> Foods </h2>
-          <CardProduct />
-        </div>
-
       </div>
-
+      <div v-for="item in listItems">
+        <router-link :to="'Ingredients/'+ item.strIngredient.toLowerCase()">{{item.strIngredient}}</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -38,23 +28,7 @@ import CardProduct from "@/components/CardProduct.vue";
 
 export default {
   name: "HomeView",
-  data () {
-    return {
-      listItems: []
-    }
-  },
-  methods: {
-    async getData() {
-      const res = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?i=list");
-      console.log(res)
-      const finalRes = await res.json();
-      console.log(finalRes.meals);
-      this.listItems = finalRes.meals;
-    }
-  },
-  mounted() {
-    this.getData()
-  },
+  
   components: {
     Navbar,
     Hero,

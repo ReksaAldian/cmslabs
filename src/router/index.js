@@ -19,12 +19,12 @@ const routes = [
     component: Foods
   },
   {
-    path: '/Ingredients',
+    path: '/Ingredients/:title',
     name: 'Ingredients',
     component: Ingredients
   },
   {
-    path: '/LocalCulinary',
+    path: '/LocalCulinary/:id',
     name: 'LocalCulinary',
     component: LocalCulinary
   },
